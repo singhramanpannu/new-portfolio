@@ -1,0 +1,17 @@
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: 250px;
+  }
+  .footer-rsp{
+    height:150px;
+  }
+  .footer-arrow{
+    width:3rem;
+    height:3rem;
+  }
+  .footer-btn{
+    bottom:100px;
+  }
+}
