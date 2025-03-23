@@ -1,32 +1,45 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaInstagram, FaLinkedin, FaTwitter, FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../css/resp.css';
 
 export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  // Navigation links with home mapped to `/`
+  const navLinks = [
+    { name: 'home', path: '/' },
+    { name: 'about', path: '/about' },
+    { name: 'projects', path: '/projects' },
+    { name: 'contact', path: '/contact' }
+  ];
 
   return (
     <>
       {/* Navbar */}
       <nav className="bg-black text-white flex items-center justify-between px-10 py-6 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gray-800 z-50 relative">
 
-        {/* Logo (Static, No Animation) */}
+        {/* Logo (Static) */}
         <div className="text-4xl font-extrabold tracking-wider text-yellow-400 cursor-pointer">
           Hey guys!!
         </div>
 
-        {/* Hamburger Menu (Visible on small screens) */}
+        {/* Hamburger Menu (Mobile) */}
         <div className="md:hidden text-3xl cursor-pointer" onClick={() => setSidebarOpen(true)}>
           <FaBars />
         </div>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex gap-10 text-lg font-semibold">
-          {['home', 'about', 'projects', 'contact'].map((item, index) => (
-            <Link key={index} to={`/${item}`} className="relative group transition duration-300">
-              {item}
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              to={link.path}
+              className={`relative group transition duration-300 ${location.pathname === link.path ? 'text-yellow-400' : ''}`}
+            >
+              {link.name}
               <motion.span
                 initial={{ width: 0 }}
                 whileHover={{ width: '100%' }}
@@ -107,14 +120,14 @@ export default function Navbar() {
 
             {/* Sidebar Links */}
             <div className="flex flex-col gap-6 p-6 text-lg font-semibold text-white">
-              {['home', 'about', 'projects', 'contact'].map((item, index) => (
+              {navLinks.map((link, index) => (
                 <Link
                   key={index}
-                  to={`/${item}`}
-                  className="hover:text-yellow-400 transition"
+                  to={link.path}
+                  className={`hover:text-yellow-400 transition ${location.pathname === link.path ? 'text-yellow-400' : ''}`}
                   onClick={() => setSidebarOpen(false)}
                 >
-                  {item}
+                  {link.name}
                 </Link>
               ))}
             </div>
