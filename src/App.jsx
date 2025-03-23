@@ -12,7 +12,7 @@ function App() {
       {/* Routes */}
       <div> {/* Added padding top to prevent navbar overlap */}
         <Routes>
-          <Route path="/home" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
