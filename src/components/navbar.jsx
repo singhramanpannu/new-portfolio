@@ -22,8 +22,8 @@ export default function Navbar() {
       <nav className="bg-black text-white flex items-center justify-between px-10 py-6 shadow-lg backdrop-blur-md bg-opacity-90 border-b border-gray-800 z-50 relative">
 
         {/* Logo (Static) */}
-        <div className="text-4xl font-extrabold tracking-wider text-yellow-400 cursor-pointer">
-          Hey guys!!
+        <div className="text-3xl font-extrabold tracking-wider text-yellow-400 cursor-pointer">
+          Raman.
         </div>
 
         {/* Hamburger Menu (Mobile) */}

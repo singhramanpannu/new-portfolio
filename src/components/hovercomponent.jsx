@@ -1,78 +1,86 @@
-import React, { useState } from 'react';
-import '../css/resp.css';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-export default function HoverComponent() {
-  const [hovered, setHovered] = useState(null);
-
+export default function HeroSection() {
   return (
-    <div className="bg-gray-900 h-[100vh] w-full flex border overflow-hidden shadow-2xl papa">
-      {/* Designer Section */}
-      <div
-        className={`transition-all duration-1000 ease-in-out ${hovered === 'one' ? 'w-[70%]' : 'w-[50%]'} 
-        flex flex-col items-center justify-center cursor-pointer 
-        bg-gradient-to-r from-yellow-400 to-orange-500 
-        text-white text-4xl font-extrabold tracking-wider 
-        shadow-2xl hover:shadow-yellow-500/50 relative`}
-        onMouseEnter={() => setHovered('one')}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <span
-          className={`transition-transform duration-700 ease-out 
-          ${hovered === 'one' ? 'scale-110 translate-y-[-15px]' : 'scale-100 translate-y-0'}`}
+    <section className="w-full min-h-screen bg-white flex items-center justify-center px-6 md:px-20">
+      
+      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-16">
+        
+        {/* Left Section */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex-1"
         >
-          DESIGNER
-        </span>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
+            Crafting <span className="text-yellow-400">Elegant</span> <br /> Experiences
+          </h1>
 
-        <p
-          className={`text-lg font-light opacity-0 transition-opacity duration-1000 ease-in-out mt-2 
-          ${hovered === 'one' ? 'opacity-100' : ''}`}
-        >
-          "Design is intelligence made visible."
-        </p>
+          <p className="text-lg text-gray-600 mt-6 leading-relaxed">
+            Bridging the gap between **design and code** with creativity, simplicity, and functionality.
+          </p>
 
-        {/* Animated Skill List */}
-        <div className={`mt-4 transition-opacity duration-1000 ${hovered === 'one' ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="flex gap-4 text-sm text-gray-800">
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">Figma</span>
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">UI/UX</span>
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">Wireframes</span>
+          <div className="mt-8 flex gap-6">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-black text-white px-8 py-3 rounded-md text-lg font-semibold shadow-lg transition hover:bg-gray-900"
+            >
+              Explore Projects
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-md text-lg font-semibold transition hover:bg-gray-100"
+            >
+              Contact Me
+            </motion.button>
           </div>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* Coder Section */}
-      <div
-        className={`transition-all duration-1000 ease-in-out ${hovered === 'two' ? 'w-[70%]' : 'w-[50%]'} 
-        flex flex-col items-center justify-center cursor-pointer 
-        bg-gradient-to-r from-blue-400 to-indigo-500 
-        text-white text-4xl font-extrabold tracking-wider 
-        shadow-2xl hover:shadow-indigo-500/50 relative`}
-        onMouseEnter={() => setHovered('two')}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <span
-          className={`transition-transform duration-700 ease-out 
-          ${hovered === 'two' ? 'scale-110 translate-y-[-15px]' : 'scale-100 translate-y-0'}`}
+        {/* Right Section */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+          className="flex-1 flex justify-center items-center"
         >
-          CODER
-        </span>
+          <div className="w-full max-w-[400px] h-[400px] md:h-[450px] bg-gray-100 rounded-3xl shadow-lg overflow-hidden relative">
+            
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 bg-gray-50"
+            />
 
-        <p
-          className={`text-lg font-light opacity-0 transition-opacity duration-1000 ease-in-out mt-2 
-          ${hovered === 'two' ? 'opacity-100' : ''}`}
-        >
-          "Code is like humor. When you have to explain it, it’s bad."
-        </p>
-
-        {/* Animated Skill List */}
-        <div className={`mt-4 transition-opacity duration-1000 ${hovered === 'two' ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="flex gap-4 text-sm text-gray-800">
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">React.js</span>
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">JavaScript</span>
-            <span className="bg-white px-3 py-1 rounded-full shadow-md hover:scale-110 transition">AEM</span>
+            <motion.div
+              className="absolute inset-0 flex flex-col items-center justify-center"
+            >
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-4xl font-bold text-gray-900"
+              >
+                Clean & Sleek
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="text-lg text-gray-600 mt-4"
+              >
+                Simplicity, elegance, and performance.
+              </motion.p>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 }
