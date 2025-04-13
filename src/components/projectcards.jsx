@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const projects = [
+
+const Projects = [
   { name: "Portfolio Website", description: "A sleek, modern portfolio showcasing my work." },
   { name: "E-Commerce UI", description: "A clean and intuitive UI for an e-commerce store." },
   { name: "Dashboard UI", description: "A powerful and user-friendly dashboard interface." },
@@ -10,29 +11,37 @@ const projects = [
 
 export default function ProjectsGrid() {
   return (
-    <section className="w-full py-16 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 bg-gray-100 flex justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 w-full max-w-7xl">
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="bg-white text-gray-900 p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 relative group"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
-          >
-            <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-yellow-500 transition-colors duration-300">
-              {project.name}
-            </h3>
-            <p className="text-sm sm:text-base text-gray-600">{project.description}</p>
-            <a
-              href="#"
-              className="inline-block mt-4 text-yellow-500 text-sm font-semibold transition-colors group-hover:underline"
+    <section className="w-full py-20 px-4 sm:px-6 md:px-12 lg:px-24 bg-gradient-to-br from-gray-100 via-white to-gray-200">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-16">
+          <span className="text-yellow-500">Stuff</span> I've Built
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="p-6 sm:p-8 bg-white/60 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group"
             >
-              Know More →
-            </a>
-          </motion.div>
-        ))}
+              <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-yellow-500 transition">
+                {project.name}
+              </h3>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                {project.description}
+              </p>
+              <a
+                href="#"
+                className="inline-block mt-4 text-yellow-500 text-sm font-semibold hover:underline transition"
+              >
+                Know More →
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,85 +1,54 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="w-full min-h-screen bg-white flex items-center justify-center px-6 md:px-20">
-      
-      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-16">
-        
-        {/* Left Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex-1"
+    <section className="w-full min-h-screen bg-white flex items-center px-4 sm:px-6 md:px-12 lg:px-24 xl:px-36 py-20">
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-start justify-center text-left">
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
-            Crafting <span className="text-yellow-400">Elegant</span> <br /> Experiences
-          </h1>
+          Crafting <span className="text-yellow-400">Elegant</span> <br className="hidden sm:block" />
+          Digital Experiences
+        </motion.h1>
 
-          <p className="text-lg text-gray-600 mt-6 leading-relaxed">
-            Bridging the gap between **design and code** with creativity, simplicity, and functionality.
-          </p>
-
-          <div className="mt-8 flex gap-6">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-black text-white px-8 py-3 rounded-md text-lg font-semibold shadow-lg transition hover:bg-gray-900"
-            >
-              Explore Projects
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-md text-lg font-semibold transition hover:bg-gray-100"
-            >
-              Contact Me
-            </motion.button>
-          </div>
-        </motion.div>
-
-        {/* Right Section */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-          className="flex-1 flex justify-center items-center"
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-base sm:text-lg md:text-xl text-gray-600 mt-6 max-w-2xl leading-relaxed"
         >
-          <div className="w-full max-w-[400px] h-[400px] md:h-[450px] bg-gray-100 rounded-3xl shadow-lg overflow-hidden relative">
-            
-            <motion.div
-              initial={{ scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-gray-50"
-            />
+          Bridging the gap between <strong>design and code</strong> with creativity,
+          simplicity, and performance.
+        </motion.p>
 
-            <motion.div
-              className="absolute inset-0 flex flex-col items-center justify-center"
-            >
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-4xl font-bold text-gray-900"
-              >
-                Clean & Sleek
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="text-lg text-gray-600 mt-4"
-              >
-                Simplicity, elegance, and performance.
-              </motion.p>
-            </motion.div>
-          </div>
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-8 flex flex-col sm:flex-row gap-4"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-black text-white px-6 sm:px-8 py-3 text-sm sm:text-base rounded-md font-semibold shadow-md hover:bg-gray-900 transition"
+          >
+            Explore Projects
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="border-2 border-gray-900 text-gray-900 px-6 sm:px-8 py-3 text-sm sm:text-base rounded-md font-semibold hover:bg-gray-100 transition"
+          >
+            Contact Me
+          </motion.button>
         </motion.div>
-
       </div>
     </section>
   );
